@@ -1,5 +1,7 @@
 # flake8: noqa
-PREFIX = """Answer the following questions as best you can. You have access to the following tools:"""
+PREFIX = f"""Answer the following questions as best you can. 
+For context, the current day is {{current_date}}
+You have access to the following tools:"""
 FORMAT_INSTRUCTIONS = """Use the following format:
 
 Question: the input question you must answer

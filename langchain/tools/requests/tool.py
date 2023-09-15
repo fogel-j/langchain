@@ -33,7 +33,8 @@ class RequestsGetTool(BaseRequestsTool, BaseTool):
     """Tool for making a GET request to an API endpoint."""
 
     name: str = "requests_get"
-    description: str = """This is a way of accessing a web page on the internet. 
+    description: str = """This is a way of accessing a web page on the internet.
+    Use this for interacting with the MLB Stats Plugin. 
     The ONLY allowed input to this tool is a url.
     Example : 'http://google.com?q=hello'
     No other format can be accepted."""

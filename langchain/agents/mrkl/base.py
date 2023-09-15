@@ -15,6 +15,7 @@ from langchain.prompts import PromptTemplate
 from langchain.pydantic_v1 import Field
 from langchain.schema.language_model import BaseLanguageModel
 from langchain.tools.base import BaseTool
+from datetime import datetime
 
 
 class ChainConfig(NamedTuple):
@@ -76,8 +77,10 @@ class ZeroShotAgent(Agent):
         Returns:
             A PromptTemplate with the template assembled from the pieces here.
         """
+        current_date = datetime.now().strftime("%m-%d-%Y")
         tool_strings = "\n".join([f"{tool.name}: {tool.description}" for tool in tools])
         tool_names = ", ".join([tool.name for tool in tools])
+        prefix = prefix.format(current_date=current_date)
         format_instructions = format_instructions.format(tool_names=tool_names)
         template = "\n\n".join([prefix, tool_strings, format_instructions, suffix])
         if input_variables is None:
