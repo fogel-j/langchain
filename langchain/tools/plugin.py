@@ -77,8 +77,7 @@ class AIPluginTool(BaseTool):
         description = (
             f"Call this tool to get the OpenAPI spec (and usage guide) "
             f"for interacting with the {plugin.name_for_human} API. "
-            f"You should only call this ONCE! What is the "
-            f"{plugin.name_for_human} API useful for? "
+            f"You must then use the 'requests_get' tool to make requests to the API"
         ) + plugin.description_for_human
         open_api_spec_str = requests.get(plugin.api.url).text
         open_api_spec = marshal_spec(open_api_spec_str)

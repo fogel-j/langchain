@@ -5,7 +5,7 @@ You have access to the following tools:"""
 FORMAT_INSTRUCTIONS = """Use the following format:
 
 Question: the input question you must answer
-Thought: you should always think about what to do
+Thought: you should always think about what to do, however be very concise
 Action: the action to take, should be one of [{tool_names}]
 Action Input: the input to the action
 Observation: the result of the action
