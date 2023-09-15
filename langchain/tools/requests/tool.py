@@ -33,7 +33,10 @@ class RequestsGetTool(BaseRequestsTool, BaseTool):
     """Tool for making a GET request to an API endpoint."""
 
     name: str = "requests_get"
-    description: str = "A portal to the internet. Use this when you need to get specific content from a website. Input should be a  url (i.e. https://www.google.com). The output will be the text response of the GET request."
+    description: str = """This is a way of accessing a web page on the internet. 
+    The ONLY allowed input to this tool is a url.
+    Example : 'http://google.com?q=hello'
+    No other format can be accepted."""
 
     def _run(
         self, url: str, run_manager: Optional[CallbackManagerForToolRun] = None
