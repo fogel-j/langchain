@@ -2,6 +2,7 @@
 """Tools for making requests to an API endpoint."""
 import json
 from typing import Any, Dict, Optional
+import re
 
 from langchain.pydantic_v1 import BaseModel
 from langchain.callbacks.manager import (
@@ -19,7 +20,10 @@ def _parse_input(text: str) -> Dict[str, Any]:
 
 
 def _clean_url(url: str) -> str:
-    """Strips quotes from the url."""
+    """Extracts the url from the string then strips quotes from the url."""
+    url_pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),;=?&]|(?:%[0-9a-fA-F][0-9a-fA-F]))+(?:#[^\s]*)?')
+    url = url_pattern.search(url)
+    url = url.group(0) if url else None
     return url.strip("\"'")
 
 
